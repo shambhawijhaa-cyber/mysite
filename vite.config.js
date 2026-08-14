@@ -4,5 +4,5 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: './', // 👈 Relative base path fixes blank screen on GitHub Pages
+  base: './', // 👈 Relative base path fixes the blank screen on GitHub Pages!
 })

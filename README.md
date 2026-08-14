@@ -22,8 +22,8 @@ Open [https://cute-apology.vercel.app/](https://cute-apology.vercel.app/) — pa
 **Edit isi surat** → `src/components/ApologyLetter.jsx`
 ```js
 const LETTER_CONTENT = {
-  greeting: "Hii sayangg,",
-  paragraphs: ["..."],
+  greeting: "Hii vedansh,",
+  paragraphs: [i am so proud of you if you reach here by cracking the code. i was unsure earlier but i am sure about us now ],
   closing: "Selamanya untukmu,",
   signature: "Aku yang selalu sayang kamu ❤️",
 }
@@ -31,7 +31,7 @@ const LETTER_CONTENT = {
 
 **Ganti passcode** → `src/components/PasscodeScreen.jsx`
 ```js
-const CORRECT_CODE = '02032026'  // format: DDMMYYYY
+const CORRECT_CODE = '16202025'  // format: ddddyyyy
 ```
 
 ---

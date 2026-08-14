@@ -1,104 +1,68 @@
 import { motion } from 'framer-motion'
 
-// ✏️ EDIT SURAT DI SINI
 const LETTER_CONTENT = {
-  greeting: "Hii sayangg,",
+  greeting: "Dear vedansh,",
   paragraphs: [
-    "Aku sadar kalau jatuh cinta bukan hanya tentang bersamamu, tapi juga tentang mengerti duniamu. 🌸",
-    "Maafin aku yang sempat buta dengan apa yang kamu rasain. Aku ingin belajar lagi menjadi rumah yang lebih peka dan lebih baik untuk segala keluh kesahmu.",
-    "Mungkin kata-kata yang aku rangkai memang ga seindah itu… tapi izinin aku buat coba belajar lagi jadi pribadi dan jadi pasangan yang lebih baik. 🥺",
+    "I AM SO PROUD OF YOU IF YOU MAKE IT TILL HERE LOL.",
+     "Thank you for your patience and for being such a wonderful part of my life."
+    "I WAS REALLY UNSURE ABOUT US BUT IF I GET A SS THAT YOU FOUND YOUR WAY HERE, I KNOW YOU ARE THE ONE."
+    "I KNOW THAT CODE WAS NOT VERY DIFFICULT AT ALL BUT YOU KNOW SOMEONE REMEMBERING THAT MAKES SO MUCH SENSE TO ME"
+    "I AM SORRY FOR BEING MEAN EARLIER BUT YOU KNOW NOW THAT I LOVE YOU 
+     "CAN I BE YOUR WIFE LOL? - WASNT THIS THAT YOU ASKED ME FROM YOUR END THAT DAY?"
+     "JUST THE FACT THAT YOU SAID CAN I BE YOUR BOYFRIEND AND NOT CAN YOU BE MY GIRLFRIEND HAD WON ME."
+       
+"
   ],
-  closing: "Selamanya untukmu,",
-  signature: "Aku yang selalu sayang kamu ❤️",
+  closing: "Forever yours,",
+  signature: "With all my love "
 }
 
 export default function ApologyLetter() {
   return (
-    <section style={{
-      padding: 'clamp(3rem, 6vw, 6rem) 1.5rem',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      position: 'relative',
-      zIndex: 1,
-    }}>
-      {/* Section header */}
+    <section style={{ padding: '3rem 1rem', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.7 }}
-        style={{ textAlign: 'center', marginBottom: '2.5rem' }}
-      >
-        <div style={{ fontSize: '3rem', marginBottom: '0.5rem', animation: 'heartBeat 2s ease-in-out infinite' }}>💌</div>
-        <h2 style={{
-          fontFamily: "'Dancing Script', cursive",
-          fontSize: 'clamp(2rem, 5vw, 3rem)',
-          background: 'linear-gradient(135deg, #C2185B, #7B1FA2)',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          backgroundClip: 'text',
-        }}>Maaf Ya…</h2>
-      </motion.div>
-
-      {/* Letter card */}
-      <motion.div
-        initial={{ opacity: 0, y: 50, scale: 0.95 }}
-        whileInView={{ opacity: 1, y: 0, scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.9, delay: 0.2 }}
+        transition={{ duration: 0.8 }}
         style={{
-          background: 'rgba(255,255,255,0.88)',
-          backdropFilter: 'blur(12px)',
-          borderRadius: '24px',
-          padding: 'clamp(2rem, 5vw, 3.5rem)',
-          maxWidth: '680px',
+          background: '#fff',
+          padding: '2.5rem 2rem',
+          borderRadius: '16px',
+          boxShadow: '0 10px 30px rgba(0,0,0,0.08)',
+          maxWidth: '550px',
           width: '100%',
-          boxShadow: '0 20px 60px rgba(199,130,200,0.22), 0 4px 16px rgba(199,130,200,0.12)',
-          border: '1.5px solid rgba(201,177,255,0.4)',
           position: 'relative',
-          overflow: 'hidden',
+          border: '1px solid rgba(255,179,198,0.3)',
         }}
       >
-        {/* Decorative corner hearts */}
-        {['top:1rem;left:1rem', 'top:1rem;right:1rem', 'bottom:1rem;left:1rem', 'bottom:1rem;right:1rem'].map((pos, i) => (
-          <span key={i} style={{
-            position: 'absolute',
-            ...Object.fromEntries(pos.split(';').map(p => p.split(':'))),
-            fontSize: '1.2rem',
-            opacity: 0.3,
-          }}>❤️</span>
-        ))}
-
-        {/* Shimmer overlay */}
-        <div style={{
-          position: 'absolute',
-          top: 0, left: 0, right: 0, height: '4px',
-          background: 'linear-gradient(90deg, var(--pink-deep), var(--purple-deep), var(--pink-deep))',
-          borderRadius: '24px 24px 0 0',
-        }} />
-
-        {/* Letter lines decoration */}
-        {Array.from({ length: 10 }).map((_, i) => (
-          <div key={i} style={{
-            position: 'absolute',
-            left: '3.5rem', right: '3.5rem',
-            top: `${80 + i * 38}px`,
-            height: '1px',
-            background: 'rgba(255,179,198,0.18)',
-          }} />
+        {/* Lined paper decoration background */}
+        {[...Array(6)].map((_, i) => (
+          <div
+            key={i}
+            style={{
+              position: 'absolute',
+              left: '3.5rem',
+              right: '3.5rem',
+              top: `${80 + i * 38}px`,
+              height: '1px',
+              background: 'rgba(255,179,198,0.18)',
+            }}
+          />
         ))}
 
         {/* Greeting */}
-        <p style={{
-          fontFamily: "'Dancing Script', cursive",
-          fontSize: 'clamp(1.3rem, 3vw, 1.6rem)',
-          color: 'var(--pink-deep)',
-          marginBottom: '1.5rem',
-          fontWeight: 600,
-          position: 'relative',
-          zIndex: 1,
-        }}>
+        <p
+          style={{
+            fontFamily: "'Dancing Script', cursive",
+            fontSize: 'clamp(1.3rem, 3vw, 1.6rem)',
+            color: 'var(--pink-deep)',
+            marginBottom: '1.5rem',
+            fontWeight: 600,
+            position: 'relative',
+            zIndex: 1,
+          }}
+        >
           {LETTER_CONTENT.greeting}
         </p>
 
@@ -133,18 +97,26 @@ export default function ApologyLetter() {
           transition={{ delay: 0.9 }}
           style={{ marginTop: '2rem', position: 'relative', zIndex: 1 }}
         >
-          <p style={{
-            fontFamily: "'Dancing Script', cursive",
-            fontSize: '1.2rem',
-            color: 'var(--text-mid)',
-            marginBottom: '0.3rem',
-          }}>{LETTER_CONTENT.closing}</p>
-          <p style={{
-            fontFamily: "'Dancing Script', cursive",
-            fontSize: '1.5rem',
-            color: 'var(--pink-deep)',
-            fontWeight: 700,
-          }}>{LETTER_CONTENT.signature}</p>
+          <p
+            style={{
+              fontFamily: "'Dancing Script', cursive",
+              fontSize: '1.2rem',
+              color: 'var(--text-mid)',
+              marginBottom: '0.3rem',
+            }}
+          >
+            {LETTER_CONTENT.closing}
+          </p>
+          <p
+            style={{
+              fontFamily: "'Dancing Script', cursive",
+              fontSize: '1.5rem',
+              color: 'var(--pink-deep)',
+              fontWeight: 700,
+            }}
+          >
+            {LETTER_CONTENT.signature}
+          </p>
         </motion.div>
       </motion.div>
 

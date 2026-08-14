@@ -13,7 +13,7 @@ npm install
 npm run dev
 ```
 
-Open [https://cute-apology.vercel.app/](https://cute-apology.vercel.app/) — passcode: `02032026`
+Open [https://cute-apology.vercel.app/](https://cute-apology.vercel.app/) 
 
 ---
 
@@ -22,16 +22,19 @@ Open [https://cute-apology.vercel.app/](https://cute-apology.vercel.app/) — pa
 **Edit isi surat** → `src/components/ApologyLetter.jsx`
 ```js
 const LETTER_CONTENT = {
-  greeting: "Hii vedansh,",
-  paragraphs: [i am so proud of you if you reach here by cracking the code. i was unsure earlier but i am sure about us now ],
-  closing: "Selamanya untukmu,",
-  signature: "Aku yang selalu sayang kamu ❤️",
-}
+  greeting: "Hi Vedansh,",
+  paragraphs: [
+    "I am so proud of you if you reached here by cracking the code!",
+    "I was unsure earlier, but I am completely sure about us now."
+  ],
+  closing: "Forever yours,",               // Removed "Selamanya untukmu,"
+  signature: "With all my love ❤️"          // Removed "Aku yang selalu sayang kamu ❤️"
+};
 ```
 
 **Ganti passcode** → `src/components/PasscodeScreen.jsx`
 ```js
-const CORRECT_CODE = '16202025'  // format: ddddyyyy
+const CORRECT_CODE = '20251203' // 
 ```
 
 ---

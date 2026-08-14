@@ -1,16 +1,15 @@
 import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
-// 🔐 GANTI PASSCODE DI SINI (format: DD/MM/YYYY tanpa slash → "02032026")
-const CORRECT_CODE = '02032026'
-const DISPLAY_HINT = '02 / 03 / 2026'
+// 🔐 CHANGE PASSCODE HERE (format: DD/MM/YYYY without slashes → "02032026")
+const CORRECT_CODE = '20251203'
 
 export default function PasscodeScreen({ onUnlock }) {
   const [input, setInput] = useState('')
   const [shake, setShake] = useState(false)
   const [success, setSuccess] = useState(false)
   const [attempts, setAttempts] = useState(0)
-  const [hint, setHint] = useState(false)
+
   const inputRef = useRef(null)
 
   useEffect(() => {
@@ -72,25 +71,32 @@ export default function PasscodeScreen({ onUnlock }) {
     >
       {/* Background floating hearts */}
       {['❤️','💕','🌸','✨','💖','⭐'].map((e, i) => (
-        <span key={i} style={{
-          position: 'absolute',
-          fontSize: `${16 + i * 4}px`,
-          top: `${8 + i * 14}%`,
-          left: i % 2 === 0 ? `${4 + i * 4}%` : `${82 - i * 3}%`,
-          animation: `sparkle ${2.5 + i * 0.5}s ${i * 0.4}s ease-in-out infinite`,
-          opacity: 0,
-        }}>{e}</span>
+        <span
+          key={i}
+          style={{
+            position: 'absolute',
+            fontSize: `${16 + i * 4}px`,
+            top: `${8 + i * 14}%`,
+            left: i % 2 === 0 ? `${4 + i * 4}%` : `${82 - i * 3}%`,
+            animation: `sparkle ${2.5 + i * 0.5}s ${i * 0.4}s ease-in-out infinite`,
+            opacity: 0,
+          }}
+        >
+          {e}
+        </span>
       ))}
 
       {/* Lock icon */}
       <motion.div
-        animate={success
-          ? { scale: [1, 1.4, 1], rotate: [0, 20, 0] }
-          : { y: [0, -8, 0] }
+        animate={
+          success
+            ? { scale: [1, 1.4, 1], rotate: [0, 20, 0] }
+            : { y: [0, -8, 0] }
         }
-        transition={success
-          ? { duration: 0.6 }
-          : { duration: 3, repeat: Infinity, ease: 'easeInOut' }
+        transition={
+          success
+            ? { duration: 0.6 }
+            : { duration: 3, repeat: Infinity, ease: 'easeInOut' }
         }
         style={{ fontSize: '4rem', marginBottom: '1rem' }}
       >
@@ -113,7 +119,7 @@ export default function PasscodeScreen({ onUnlock }) {
           marginBottom: '0.4rem',
         }}
       >
-        {success ? 'Berhasil! 🎉' : 'Masukkan Tanggal Spesial'}
+        {success ? 'Success! 🎉' : 'Enter the Special Date'}
       </motion.h1>
 
       <motion.p
@@ -128,7 +134,7 @@ export default function PasscodeScreen({ onUnlock }) {
           textAlign: 'center',
         }}
       >
-        {success ? 'Membuka surat untukmu... 💌' : 'Hanya untuk kamu yang tahu tanggalnya 🥺'}
+        {success ? 'Opening your letter... 💌' : 'Only for you who knows the date 🥺'}
       </motion.p>
 
       {/* Input display */}
@@ -151,42 +157,12 @@ export default function PasscodeScreen({ onUnlock }) {
           textAlign: 'center',
           transition: 'border-color 0.3s',
         }}
-      >
-        <p style={{
-          fontFamily: "'Dancing Script', cursive",
-          fontSize: '2rem',
-          letterSpacing: '3px',
-          color: success ? '#7B1FA2' : shake ? '#FF4D7D' : 'var(--text-dark)',
-          transition: 'color 0.3s',
-        }}>
-          {formatDisplay(input)}
-        </p>
-        <p style={{
-          fontSize: '0.75rem',
-          color: 'var(--text-light)',
-          fontFamily: "'Quicksand', sans-serif",
-          marginTop: '0.2rem',
-        }}>
-          DD / MM / YYYY
-        </p>
-      </motion.div>
-
-      {/* Error message */}
-      <AnimatePresence>
-        {shake && (
-          <motion.p
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0 }}
-            style={{
-              color: '#FF4D7D',
-              fontSize: '0.9rem',
-              marginBottom: '0.8rem',
+     
               fontFamily: "'Quicksand', sans-serif",
               fontWeight: 700,
             }}
           >
-            Salah tanggalnya~ Coba lagi 😅
+            Wrong date! Try again 😅
           </motion.p>
         )}
       </AnimatePresence>
@@ -210,7 +186,7 @@ export default function PasscodeScreen({ onUnlock }) {
               marginBottom: '0.8rem',
             }}
           >
-            💡 Lihat petunjuk?
+            💡 Need a hint?
           </motion.button>
         )}
         {hint && !success && (
@@ -225,7 +201,7 @@ export default function PasscodeScreen({ onUnlock }) {
               fontStyle: 'italic',
             }}
           >
-            Petunjuk: {DISPLAY_HINT} 🗓️
+            Hint: {DISPLAY_HINT} 🗓️
           </motion.p>
         )}
       </AnimatePresence>
@@ -255,14 +231,13 @@ export default function PasscodeScreen({ onUnlock }) {
                 else handleDigit(k)
               }}
               style={{
-                background: k === '⌫'
-                  ? 'linear-gradient(135deg, rgba(255,133,161,0.2), rgba(255,133,161,0.1))'
-                  : k
-                  ? 'rgba(255,255,255,0.8)'
-                  : 'transparent',
-                border: k
-                  ? '1.5px solid rgba(201,177,255,0.4)'
-                  : 'none',
+                background:
+                  k === '⌫'
+                    ? 'linear-gradient(135deg, rgba(255,133,161,0.2), rgba(255,133,161,0.1))'
+                    : k
+                    ? 'rgba(255,255,255,0.8)'
+                    : 'transparent',
+                border: k ? '1.5px solid rgba(201,177,255,0.4)' : 'none',
                 borderRadius: '16px',
                 padding: '1rem',
                 fontSize: k === '⌫' ? '1.1rem' : '1.4rem',
